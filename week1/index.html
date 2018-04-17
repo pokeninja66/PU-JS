@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>JS change image</title>
     <style>
-
+        /*
+            malko skapano e da e tuka staila ma nqma smisul za tolkova malko da e v otdelen fail
+        */
         body {
             font-size: 1em;
             padding: 0;
@@ -43,7 +45,7 @@
             position: absolute;
             left: 0;
             bottom: 0;
-
+            margin-top: 3em;
         }
 
     </style>
@@ -55,10 +57,31 @@
     THIS IS A JAVASCRIPT FOR CHANGING IMAGES
 </header>
 
+<script>
+
+    //initializing the image array
+    var Images = ['img/1.gif', 'img/2.jpg', 'img/3.jpg'];
+
+    //change image function
+    function changeIMG() {
+
+        var img = document.getElementById('img');
+
+        if (Images.length > 0) {
+            img.src = Images.pop();
+        } else {
+            img.src = "img/default.gif";
+            alert('No more images to change');
+        }
+
+    }
+
+</script>
+
 <div>
-    <img id="img" src="img" alt="ERR"/>
+    <img id="img" style="width: 40%; height: 55%;" src="img/default.gif" alt="ERR"/>
     <br>
-    <button>change image</button>
+    <button onclick="changeIMG()">change image</button>
 </div>
 
 <footer>
