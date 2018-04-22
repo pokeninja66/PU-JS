@@ -49,7 +49,7 @@
     </div>
     -->
 
-    <div class="row" id="container">
+    <div class="row" id="data">
 
     </div>
 
@@ -57,8 +57,8 @@
 
 <script>
 
-    $( document ).ready(function() {
-        console.log( "ready!" );
+    $(document).ready(function () {
+        console.log("ready!");
         getJSONdata();
     });
 
@@ -66,10 +66,52 @@
 
         var JsonObj;
 
-        $.get("https://jsonplaceholder.typicode.com/photos/1", function (data) {
+        $.get("https://jsonplaceholder.typicode.com/photos/", function (data) {
             JsonObj = data;
+
             console.log(JsonObj);
             alert("Load was performed.");
+
+
+            // da se pita za po lesen nachin na ogranichavane na Json obektite
+
+            // var 1
+            for (i = 0; i < 100; i++) {
+                $('#data').append(
+                    "<div class='col-md-3' id='" + JsonObj[i].id + "'> " +
+                    "<a href='" + JsonObj[i].url + "' target='_blank'> " +
+                    "<span class='badge badge-success'>Album ID " + JsonObj[i].albumId + "</span>" +
+                    "<p class='lead'>" + JsonObj[i].title + "</p> " +
+                    "<img src='" + JsonObj[i].thumbnailUrl + "' />" +
+                    "</a>" +
+                    "</div>"
+                );
+            }
+
+
+            /*
+            //var 2
+            var count = 0;
+
+            $.each(JsonObj, function (i, value) {
+                count++;
+
+                if (count <= 100) {
+                    $('#data').append(
+                        "<div class='col-md-3' id='" + JsonObj[i].id + "'> " +
+                        "<a href='" + JsonObj[i].url + "' target='_blank'> " +
+                        "<span class='badge badge-success'> Album ID " + JsonObj[i].albumId + "</span>" +
+                        "<p class='lead'>" + JsonObj[i].title + "</p> " +
+                        "<img src='" + JsonObj[i].thumbnailUrl + "' />" +
+                        "</a>" +
+                        "</div>"
+                    );
+
+                }
+            });
+            */
+
+
         });
 
     }
