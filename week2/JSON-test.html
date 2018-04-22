@@ -21,7 +21,10 @@
 </head>
 <body>
 
+<h1>getting some JSON objects from JSONPlaceholder</h1>
+<br>
 <div class="container-fluid">
+    <!-- testing some bootstrap classes
     <div class="row">
         <div class="col-md-3">
             <span class="badge badge-primary">New</span>
@@ -44,7 +47,34 @@
             <img class="img-thumbnail" src="images/1.gif">
         </div>
     </div>
+    -->
+
+    <div class="row" id="container">
+
+    </div>
+
 </div>
+
+<script>
+
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        getJSONdata();
+    });
+
+    function getJSONdata() {
+
+        var JsonObj;
+
+        $.get("https://jsonplaceholder.typicode.com/photos/1", function (data) {
+            JsonObj = data;
+            console.log(JsonObj);
+            alert("Load was performed.");
+        });
+
+    }
+
+</script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
